@@ -139,7 +139,16 @@ class Node{
 	   */
 	   public int getMin(Node root){
          //implement in here
-	      
+         
+	      // base case
+         if(root == null){
+           return 0;
+         }
+         if(root.left == null){
+            return root.value;
+         }else{ 
+            return getMin(root.left);
+	      } 
 	   }
 	  
 	  
@@ -216,7 +225,8 @@ class Node{
 	      System.out.println();     
 	      System.out.println("Looking for value 9: "+ t1.find(t1.root, 9));
 	      System.out.println(); 
-	          
+	      System.out.println("The min value is: " +t1.getMin(t1.root));
+         System.out.println();    
 	      
 	   }  
 	}
