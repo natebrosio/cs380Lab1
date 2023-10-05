@@ -76,10 +76,18 @@ class Node{
 	   */
 	   public void inOrderTraversal(Node root){
 	      //implement in here
+         
+         // base case
+         if (root == null){
+            return;
+         }
+         
+         // algorithm for inOrder
+         inOrderTraversal(root.left);
+         System.out.print(root.value + ", ");
+	      inOrderTraversal(root.right);
 	   }
-	   
-	   
-	   
+	   	   
 	   /*
 	   post-order traversal
 	   */
