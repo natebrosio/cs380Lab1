@@ -150,18 +150,25 @@ class Node{
             return getMin(root.left);
 	      } 
 	   }
-	  
-	  
-	  
+	    
 	   /*
 	   a method to find the node in the tree
 	   with a largest key
 	   */
 	   public int getMax(Node root){
-         //implement in here
+         //implement in here       
+         
+         // base case
+         if(root == null){
+           return 0;
+         }
+         if(root.right == null){
+            return root.value;
+         }else{ 
+            return getMax(root.right);
+	      }         
+      
 	   }
-	   
-	   
 	   
 	   /*
 	   this method will not compile until getMax
@@ -227,6 +234,11 @@ class Node{
 	      System.out.println(); 
 	      System.out.println("The min value is: " +t1.getMin(t1.root));
          System.out.println();    
-	      
+         System.out.println("The max value is: " +t1.getMax(t1.root));
+         System.out.println();
+         System.out.println("Deleting node 22: ");
+         t1.delete(t1.root, 22);
+	      System.out.print("in-order :   ");
+	      t1.inOrderTraversal(t1.root);	      
 	   }  
 	}
