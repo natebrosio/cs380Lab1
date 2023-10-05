@@ -103,8 +103,7 @@ class Node{
          // algorithm for postOrder
 		   postOrderTraversal(root.left);
          postOrderTraversal(root.right);
-         System.out.println(root.value + ", ");
-         
+         System.out.println(root.value + ", ");     
 		   
 	   }
 	   
@@ -116,11 +115,24 @@ class Node{
 	   */
 	   public boolean find(Node root, int key){
 		 //implement in here
-		  
-	   }
-	   
-	   
-	   
+       // base case
+		 if(root == null){
+         return false;
+       }
+       
+       // root is the key
+       if(root.value == key){
+         return true;
+       }
+        
+       // searching the right side of the tree
+       if (root.value < key){
+         return find(root.right, key);   
+       // searching the left side of the tree
+       }else{
+         return find(root.left, key);
+       }
+	   }	   
 	   /*
 	   a method to find the node in the tree
 	   with a smallest key
@@ -194,7 +206,17 @@ class Node{
 	      System.out.print("in-order :   ");
 	      t1.inOrderTraversal(t1.root);
 	      System.out.println();
-	           
+	      System.out.print("pre-order :   ");
+	      t1.preOrderTraversal(t1.root);
+	      System.out.println();
+         System.out.print("post-order :   ");
+	      t1.postOrderTraversal(t1.root);
+	      System.out.println();
+         System.out.println("Looking for value 3: "+ t1.find(t1.root, 3));
+	      System.out.println();     
+	      System.out.println("Looking for value 9: "+ t1.find(t1.root, 9));
+	      System.out.println(); 
+	          
 	      
 	   }  
 	}
